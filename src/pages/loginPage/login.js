@@ -1,103 +1,5 @@
-// import React from "react";
-// import {
-//   Link,
-//   Paper,
-//   Grid,
-//   Typography,
-//   Checkbox,
-//   Container,
-//   FormControlLabel,
-//   TextField,
-//   CssBaseline,
-//   Button,
-//   Avatar,
-// } from "@material-ui/core";
-// import { LockOutlined } from "@material-ui/icons";
-// import { makeStyles } from "@material-ui/core/styles";
-// import bgImg from "../../assets/img/bg-login.jpg";
-
-// export default function SignIn() {
-//   const classes = useStyles();
-//   return (
-//     <Paper
-//       style={{
-//         backgroundImage: `url(${bgImg})`,
-//         height: "100vh",
-//         width: "100wh",
-//         backgroundSize: "cover",
-//         backgroundRepeat: "no-repeat",
-//         alignContent: "center",
-//         textAlign: "center",
-//       }}
-//     >
-//       <Paper
-//         style={{
-//           width: "50%",
-//         }}
-//       >
-//         <div className={classes.paper}>
-//           <Avatar className={classes.avatar}>
-//             <LockOutlined />
-//           </Avatar>
-//           <Typography component="h1" variant="h5">
-//             Sign in
-//           </Typography>
-//           <form className={classes.form} noValidate>
-//             <TextField
-//               variant="outlined"
-//               margin="normal"
-//               required
-//               fullWidth
-//               id="email"
-//               label="Email Address"
-//               name="email"
-//               autoComplete="email"
-//               autoFocus
-//             />
-//             <TextField
-//               variant="outlined"
-//               margin="normal"
-//               required
-//               fullWidth
-//               name="password"
-//               label="Password"
-//               type="password"
-//               id="password"
-//               autoComplete="current-password"
-//             />
-//             <FormControlLabel
-//               control={<Checkbox value="remember" color="primary" />}
-//               label="Remember me"
-//             />
-//             <Button
-//               type="submit"
-//               fullWidth
-//               variant="contained"
-//               color="primary"
-//               className={classes.submit}
-//             >
-//               Sign In
-//             </Button>
-//             <Grid container>
-//               <Grid item xs>
-//                 <Link href="#" variant="body2">
-//                   Forgot password?
-//                 </Link>
-//               </Grid>
-//               <Grid item>
-//                 <Link href="#" variant="body2">
-//                   {"Don't have an account? Sign Up"}
-//                 </Link>
-//               </Grid>
-//             </Grid>
-//           </form>
-//         </div>
-//       </Paper>
-//     </Paper>
-//   );
-// }
-
-import React from "react";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Grid,
   Paper,
@@ -109,30 +11,30 @@ import {
   Checkbox,
   InputAdornment,
   Divider,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import bgImg from "../../assets/img/bg-login.jpg";
-import { PersonOutline, VpnKeyOutlined } from "@material-ui/icons/";
+} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import bgImg from '../../assets/img/bg-login.jpg';
+import { PersonOutline, VpnKeyOutlined } from '@material-ui/icons/';
 const useStyles = makeStyles((theme) => ({
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
   layout: {
-    width: "auto",
+    width: 'auto',
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: "35%",
-      marginLeft: "auto",
-      marginRight: "auto",
+      width: '35%',
+      marginLeft: 'auto',
+      marginRight: 'auto',
     },
     paddingTop: theme.spacing(25),
   },
@@ -148,16 +50,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function AddressForm() {
   const classes = useStyles();
+  const history = useHistory();
   return (
     <div
       style={{
         backgroundImage: `url(${bgImg})`,
-        height: "100vh",
-        width: "100wh",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        alignContent: "center",
-        textAlign: "center",
+        height: '100vh',
+        width: '100wh',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        alignContent: 'center',
+        textAlign: 'center',
         zIndex: 1,
       }}
     >
@@ -215,7 +118,12 @@ export default function AddressForm() {
                 </Link>
               </Grid>
             </Grid>
-            <Button fullWidth variant="outlined" className={classes.submit}>
+            <Button
+              fullWidth
+              variant="outlined"
+              className={classes.submit}
+              onClick={() => history.push('/Dashboard')}
+            >
               Login
             </Button>
             <Grid container alignItems="center" spacing={3}>
