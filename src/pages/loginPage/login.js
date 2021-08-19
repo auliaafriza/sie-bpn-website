@@ -15,6 +15,8 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import bgImg from '../../assets/img/bg-login.jpg';
 import { PersonOutline, VpnKeyOutlined } from '@material-ui/icons/';
+import Logo from '../../assets/img/fav.png';
+
 const useStyles = makeStyles((theme) => ({
   avatar: {
     margin: theme.spacing(1),
@@ -66,9 +68,12 @@ export default function AddressForm() {
     >
       <main className={classes.layout}>
         <Paper className={classes.paper}>
-          <Typography component="h1" variant="h4" align="center">
-            SIE ATR BPN
-          </Typography>
+          <Grid container direction="row" justify="center" alignItems="center">
+            <img src={Logo} style={{ width: 35, height: 35 }}></img>
+            <Typography component="h1" variant="h4" align="center">
+              SIE ATR BPN
+            </Typography>
+          </Grid>
           <form className={classes.form}>
             <TextField
               variant="outlined"
